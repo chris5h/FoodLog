@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Food and Headache Log</title> 
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/png" href="icon.png">
+  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.23/css/jquery.dataTables.css">  
+  <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+</head>
+<body>
+
+<div class="container">
+  <br>
+  <span style="display: none;" id="newform">
+    <form autocomplete="off">
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Date</span>
+        </div>
+        <input type="date" name="date" id="date" class="form-control" required>
+        <div class="input-group-prepend">
+          <span class="input-group-text">Time</span>
+        </div>
+        <input type="time" name="time" id="time" class="form-control" required>
+      </div>
+      
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Type</span>
+        </div>
+        <select class="form-control" id="type" name="type" required>
+          <option></option>
+          <option value=1>Food</option>
+          <option value=2>Beverage</option>
+          <option value=3>Headache</option>
+        </select> 
+      </div>
+
+      <div class="input-group mb-3">
+        <div class="input-group-prepend">
+          <span class="input-group-text">Description</span>
+        </div>
+        <input name="description" id="description" class="form-control" placeholder="Description" required>
+      </div>
+      
+      <button type="button" class="btn btn-success" onclick="newLog()" id="save_button">Save</button>
+      <button type="button" class="btn btn-danger" onclick="drawHome()" id="cancel_button">Cancel</button>      
+      <button type="button" class="btn btn-outline-danger" onclick="delLog()" id="delete_button" style="display: none;">Delete</button>
+    </form>
+  </span>
+  <button type="button" class="btn btn-success" onclick="showNewLog()" id="new_button">New Entry</button>
+  
+  <br><br>
+  <table id="log" class="display" width="100%"></table>
+</div>
+<script src="log.js"></script>
+</body>
+</html>
